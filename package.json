@@ -1,14 +1,15 @@
 {
-  "name": "majorproject",
+  "name": "findnest",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Full-stack MERN travel accommodation platform",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ayush Nimbhorkar",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
