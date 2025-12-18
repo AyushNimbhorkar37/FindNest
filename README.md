@@ -1,6 +1,6 @@
 # 🏡 FindNest
 
-FindNest is a full-stack MERN-based travel accommodation platform that enables users to explore, list, and manage accommodation options through a clean, scalable, and production-ready web application.
+FindNest is a full-stack travel accommodation platform that enables users to explore, list, and manage accommodation options through a clean, scalable, and production-ready web application.
 
 ---
 
