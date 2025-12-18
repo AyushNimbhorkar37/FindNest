@@ -1,0 +1,231 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+
+/* Navbar */
+.navbar {
+    height: 4rem;
+    background-color: rgb(251, 251, 251);
+}
+
+.fa-compass {
+    color: #fe424d !important;
+}
+
+.navbar-brand {
+    color: #fe424d !important;
+    font-size: 1.4rem !important;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+/* Home Page */
+.logo {
+    margin-top: 2rem;
+    font-size: 0; 
+    color: #fe424d;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: logo-appear 1.75s ease-in-out forwards; 
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 500;
+     /* font-style: italic; */
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+}
+
+/* Logo Animation */
+@keyframes logo-appear {
+    0% {
+        font-size: 0;
+        opacity: 0; 
+        transform: scale(0.1); 
+    }
+    100% {
+        font-size: 8rem;
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+.brand-icon{
+    font-size: 0; 
+    animation: logo-appear 1.75s ease-in-out forwards; 
+}
+
+.home_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.home-btn {
+    width: 220px;
+    margin-top: 10px; 
+    text-align: center;
+    padding: 10px 35px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #fe424d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0; 
+    animation: button-appear 0.8s ease-in-out forwards;
+    animation-delay: 1.76s; 
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.home-btn:hover {
+    background-color: #d33b44; 
+    transform: scale(1.07);
+    box-shadow: 0 8px 16px rgba(239, 68, 68, 0.731);
+}
+
+/* Button animation */
+@keyframes button-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(22px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+
+/* Footer */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials {
+    font-size: 1.3rem;
+}
+
+.f-info-socials i,
+.f-info-links a {
+    margin-right: 1rem;
+}
+
+.f-info-socials i:hover {
+    transform: scale(1.15);
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+
+/* Listing Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 1005 !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight:400 !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+/* Card effect */
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.5;
+    background-color: rgb(236, 255, 254);
+}
+
+.add-btn, .edit-btn{
+    background-color: #fe424d !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3) !important;
+}
+
+.add-btn:hover, .edit-btn:hover{
+    transform: scale(1.07);
+    box-shadow: 0 8px 16px rgba(239, 68, 68, 0.731);
+}
+
+
+.show-img{
+    height: 18rem;
+}
+
+.show-btn{
+    width: 135px;
+    margin-top: 10px; 
+    text-align: center;
+    padding: 10px 35px;
+    font-size: 0.95rem;
+    color: #fff;
+    background-color: #fe424d;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.show_btn{
+    margin-top: -18px;
+    width: 335px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-btn:hover {
+    background-color: #d33b44; 
+    transform: scale(1.04);
+    box-shadow: 0 8px 16px rgba(239, 68, 68, 0.731);
+}

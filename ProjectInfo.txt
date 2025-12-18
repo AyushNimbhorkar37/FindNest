@@ -1,0 +1,107 @@
+🧱 FindNest Project — Full Architecture Summary
+⚙️ Tech Stack
+
+Backend: Node.js + Express.js
+
+Database: MongoDB (via Mongoose)
+
+Templating Engine: EJS (with layouts using ejs-mate)
+
+Styling & UI: Bootstrap 5 + Font Awesome + custom CSS (/public/css/style.css)
+
+Validation: Joi (server-side) + Bootstrap (client-side form validation)
+
+Error Handling: Centralized middleware + ExpressError class
+
+Utilities:
+
+wrapAsync.js — wraps async functions for cleaner try/catch handling
+
+ExpressError.js — custom error class with statusCode
+
+schema.js — Joi schema definitions
+
+Server Port: 8080
+
+Database URL: mongodb://127.0.0.1:27017/findnest
+
+🧩 Folder & File Overview
+Folder	Key Files	Purpose
+/models	listing.js	Defines the MongoDB schema for listings
+/views/listings	index.ejs, show.ejs, new.ejs, edit.ejs	EJS templates for CRUD pages
+/views/includes	navbar.ejs, footer.ejs	Common page parts
+/views/layouts	boilerplate.ejs	Master layout file used by all views
+/public	/css/style.css, /js/script.js	Static frontend assets
+/utils	wrapAsync.js, ExpressError.js	Helper functions for cleaner code
+/	app.js, schema.js	Main server setup and validation rules
+🗄️ Database Schema (Listing)
+{
+  title: String,        // required
+  description: String,  // required
+  image: {
+    filename: String,
+    url: String         // defaults to a beach house photo
+  },
+  price: Number,        // required, >= 0
+  location: String,     // required
+  country: String       // required
+}
+
+
+Mongoose automatically fills in the image.url with a default Unsplash link if it’s missing or empty.
+
+🌐 Routing Flow
+Method	Route	Description	View / Logic
+GET	/	Test route	Sends “Server Working…”
+GET	/listings/home	Homepage	listings/home.ejs
+GET	/listings	Show all listings	listings/index.ejs
+GET	/listings/new	Show “create new” form	listings/new.ejs
+POST	/listings	Create new listing	Validated → saved → redirect to /listings
+GET	/listings/:id	Show single listing	listings/show.ejs
+GET	/listings/:id/edit	Show edit form	listings/edit.ejs
+PUT	/listings/:id	Update listing	Validated → updated → redirect to show page
+DELETE	/listings/:id	Delete listing	Remove → redirect to /listings
+*	any other route	Show error page	error.ejs
+🎨 EJS Layout System
+
+Your boilerplate.ejs file is the global layout — it includes:
+
+navbar.ejs and footer.ejs
+
+Bootstrap and Font Awesome
+
+Your favicon (SVG)
+
+<%- body %> → This is where child templates like new.ejs and index.ejs are injected
+
+All your pages extend this layout using:
+
+<% layout("/layouts/boilerplate") %>
+
+⚠️ Error Handling Flow
+
+If any route throws an error:
+
+wrapAsync catches it and passes to next().
+
+Express catches it in:
+
+app.use((err, req, res, next) => {
+    let { statusCode = 500, message = "Something went wrong!" } = err;
+    res.status(statusCode).render("error.ejs", { message });
+});
+
+
+error.ejs displays a red Bootstrap alert with the message.
+(Now fixed with <%= message %> ✅)
+
+🔄 Data Flow Example (Creating a Listing)
+User fills "new.ejs" form → 
+POST /listings →
+app.js route:
+   - adds default image
+   - Joi validates input
+   - creates new Listing document
+   - saves to MongoDB
+   - redirects to /listings →
+EJS renders index page showing new listing
