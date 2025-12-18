@@ -41,23 +41,28 @@ FindNest is a full-stack travel accommodation platform that enables users to exp
 
 ## 📂 Project Structure
 
+## 📂 Project Structure
+
+```text
 FindNest/
-│── init/
-│── models/
-│── utils/
-│── views/
-│ ├── includes/
-│ ├── layouts/
-│ └── listings/
-│── public/
-│ ├── css/
-│ └── js/
-│── app.js
-│── schema.js
-│── package.json
-│── package-lock.json
-│── .gitignore
-│── README.md
+├── init/
+├── models/
+├── utils/
+├── views/
+│   ├── includes/
+│   ├── layouts/
+│   └── listings/
+├── public/
+│   ├── css/
+│   └── js/
+├── app.js
+├── schema.js
+├── package.json
+├── package-lock.json
+├── .gitignore
+└── README.md
+```
+
 
 
 
